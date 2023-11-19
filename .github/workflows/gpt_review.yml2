@@ -1,1 +1,15 @@
+name: GPT Review
+on: [push, pull_request]
 
+jobs:
+  gpt_review:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Run GPT Review Action
+      uses: nodify-at/gpt-pull-bot@1.0.3
+      with:
+        api-key: ${{ secrets.GPT_API_KEY }}
+        github-token: ${{ secrets.go_token }}
